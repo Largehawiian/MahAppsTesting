@@ -1,14 +1,11 @@
-<Controls:MetroWindow 
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-        Title="EXAMPLE" 
-        Width="auto" 
-        Height="auto"  
-		ResizeMode="NoResize"	
-		>
-
+<Controls:MetroWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    Width="1730" Height="778" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0"
+    Name="MainWindow"
+>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -22,83 +19,70 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
-
-
-
-
-	
-    <Grid Background="white">  
-
-		<StackPanel HorizontalAlignment="Center">
-
-			<!-- CONTAINER -->
-			<StackPanel Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">	
-
-                <DataGrid x:Name="gridLogs" AutoGenerateColumns="False" Margin="33,0,0,0"
-                    GridLinesVisibility="All" HorizontalGridLinesBrush="#FFD4D4D4"  VerticalGridLinesBrush="#FFD4D4D4" 
-                    OverridesDefaultStyle="True" CanUserAddRows="False">
+    <Grid Margin="0,0,0,0">
+        <Border BorderBrush="Black" BorderThickness="1">
+        <StackPanel HorizontalAlignment="Center" Margin="0,0,0,1">
+            <!-- CONTAINER -->
+            <StackPanel Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">
+                <DataGrid Name="gridLogs" AutoGenerateColumns="False" Margin="0,0,0,0" Width="1500" Height="800"
+                    GridLinesVisibility="All" HorizontalGridLinesBrush="#FFD4D4D4" VerticalGridLinesBrush="#FFD4D4D4"
+                    OverridesDefaultStyle="True" CanUserAddRows="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                    ScrollViewer.CanContentScroll="true">
                     <DataGrid.Columns>
-
-                        <DataGridTextColumn Binding="{Binding ComputerName}" Header="Computer Name" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Binding="{Binding IP_Adress}" Header="IP Adress" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Binding="{Binding Domain}" Header="Client Domain" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Binding="{Binding Patch}" Header="Patched" IsReadOnly="True" Width="auto"/>
-
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Name" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding NumCPU}" Header="NumCPU" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding MemoryGB}" Header="MemoryGB" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding ProvisionedSpaceGB}" Header="ProvisionedSpaceGB" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding UsedSpaceGB}" Header="UsedSpaceGB" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Guest}" Header="Guest" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding PowerState}" Header="PowerState" IsReadOnly="True" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding VMHost}" Header="VMHost" IsReadOnly="True" Width="auto" />
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-
-                                        <Button x:Name="View"  Background="#FF44AFE3" Style="{DynamicResource MetroCircleButtonStyle}" 
-                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch" 
-                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                        <Button Name="View" Background="#FF44AFE3" Style="{DynamicResource MetroCircleButtonStyle}"
+                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center"
                                             BorderThickness="0" Margin="0,0,0,0">
                                             <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="white">
                                                 <Rectangle.OpacityMask>
-                                                    <VisualBrush  Stretch="Fill" Visual="{StaticResource appbar_magnify}"/>
+                                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_magnify}" />
                                                 </Rectangle.OpacityMask>
                                             </Rectangle>
                                         </Button>
-
-                                        <Button x:Name="Edit"  Background="#198C19" Style="{DynamicResource MetroCircleButtonStyle}" 
-                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch" 
-                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                        <Button Name="Edit" Background="#198C19" Style="{DynamicResource MetroCircleButtonStyle}"
+                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center"
                                             BorderThickness="0" Margin="0,0,0,0">
                                             <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="white">
                                                 <Rectangle.OpacityMask>
-                                                    <VisualBrush  Stretch="Fill" Visual="{StaticResource appbar_edit}"/>
+                                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_edit}" />
                                                 </Rectangle.OpacityMask>
                                             </Rectangle>
                                         </Button>
-
-                                        <Button x:Name="Delete"  Background="#FFA500" Style="{DynamicResource MetroCircleButtonStyle}" 
-                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch" 
-                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                        <Button Name="Delete" Background="#FFA500" Style="{DynamicResource MetroCircleButtonStyle}"
+                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center"
                                             BorderThickness="0" Margin="0,0,0,0">
-                                            <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="white" >
+                                            <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="white">
                                                 <Rectangle.OpacityMask>
-                                                    <VisualBrush  Stretch="Fill" Visual="{StaticResource appbar_close}"/>
+                                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_close}" />
                                                 </Rectangle.OpacityMask>
                                             </Rectangle>
                                         </Button>
-
                                     </StackPanel>
-
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
-
                     </DataGrid.Columns>
                 </DataGrid>
-
-			</StackPanel>
-
-        	<!-- CUSTOM DIALOG 
+            </StackPanel>
+            <!-- </ScrollViewer> -->
+            <!-- CUSTOM DIALOG
             <Dialog:CustomDialog x:Key="CustomDialogTest"
                         Title="This dialog allows arbitrary content. It will close in 5 seconds."
-                        x:Name="CustomTestDialog">
+                        Name="CustomTestDialog">
                 <StackPanel>
                     <TextBlock Height="30"
                                 Text="This dialog allows arbitrary content. You have to close it yourself by clicking the close button below."
@@ -107,17 +91,9 @@
                     <Button Content="Close Me!" />
                 </StackPanel>
             </Dialog:CustomDialog> -->
-
-    	    <!-- TEST -->
-            <Button x:Name="btntest" Content="Button" HorizontalAlignment="Left" Height="48" Margin="53,10,0,0" VerticalAlignment="Top" Width="165"/>
-
-			
-		</StackPanel>		
-
+            <!-- TEST -->
+            <Button Name="showSample" Content="Button" HorizontalAlignment="Left" Height="48" Margin="53,10,0,0" VerticalAlignment="Top" Width="165" />
+        </StackPanel>
+        </Border>
     </Grid>
-
-</Controls:MetroWindow>        
-   
-    
-    
-    
+</Controls:MetroWindow>

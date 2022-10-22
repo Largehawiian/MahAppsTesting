@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	Height="300"
     >
-	
+
     <Grid.Resources>
 	    <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </Grid.Resources>
 
-	
+
     <StackPanel Orientation="Vertical" Margin="0,5,0,0">
 
 
@@ -25,18 +25,18 @@
 				</Rectangle.OpacityMask>
 			</Rectangle>
 		</Border>
-		
+
 		<StackPanel Orientation="Horizontal" Margin="0,5,0,0">
 			<Label Content="Editable content!" Width="100"/>
 		</StackPanel>
 
-		
+
 		<StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-			<Button x:Name="closeMe" Content="Close Me" Width="100"
+			<Button Name="closeMe" Content="Close Me" Width="100"
 			HorizontalAlignment="Center"
 			/>
 		</StackPanel>
-  
+
 	</StackPanel>
-	
+
 </Grid>
